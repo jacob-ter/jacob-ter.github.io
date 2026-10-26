@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jacob-ter</title>
+<meta name="description" content="一致率低的时候，得知道分歧在哪。">
+<style>
+:root{
+  --bg:#fcfcfb; --fg:#2a2a28; --muted:#8e8e88; --line:#f0f0ec;
+  --card:#fcfcfb; --accent:#7a8b99; --accent2:#a08b7a;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0; color:var(--fg); background:#fcfcfb;
+  font-family:"Songti SC", "Noto Serif SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+  font-size:17px; line-height:1.92; letter-spacing:.005em;
+}
+main{max-width:620px; margin:0 auto; padding:72px 24px 110px}
+h1,h2,h3{line-height:1.28; letter-spacing:-.01em; font-weight:650}
+a{color:var(--accent2); text-decoration:none; border-bottom:1px solid transparent}
+a:hover{border-bottom-color:var(--accent2)}
+.eyebrow{margin:0 0 14px; font-size:12.5px; color:var(--muted);
+  letter-spacing:.16em; text-transform:uppercase}
+.hero{padding-bottom:40px; border-bottom:1px solid var(--line)}
+.hero h1{margin:0; font-size:40px; font-weight:650}
+.tagline{margin:16px 0 0; font-size:18px; color:var(--muted); max-width:36em}
+.links{margin:16px 0 0; font-size:15px}
+section{padding:42px 0; border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{margin:0 0 20px; font-size:13px; font-weight:650; color:var(--muted)}
+.about p{margin:0 0 18px; font-size:1.05em}
+ul.traits{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+ul.traits li{padding-left:22px; position:relative}
+ul.traits li::before{content:""; position:absolute; left:2px; top:.74em;
+  width:8px; height:8px; border-radius:50%; background:var(--accent)}
+.grid{display:grid; gap:14px}
+@media(min-width:660px){ .grid.two{grid-template-columns:1fr 1fr} }
+.card h3{margin:0 0 8px; font-size:17px; font-weight:650}
+.card p{margin:0; color:var(--muted); font-size:15px}
+.card .status{display:inline-block; margin-top:12px; font-size:12px;
+  color:var(--accent); letter-spacing:.06em}
+ul.repos{list-style:none; margin:0; padding:0}
+ul.repos li{padding:16px 0; border-bottom:1px dashed var(--line)}
+ul.repos li:last-child{border-bottom:0}
+ul.repos .name{font-weight:650}
+ul.repos .desc{color:var(--muted); font-size:15px; margin-top:2px}
+ul.tags{display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none}
+ol.timeline{list-style:none; margin:0; padding:0 0 0 22px}
+ol.timeline li{position:relative; padding:0 0 24px 20px}
+ol.timeline li:last-child{padding-bottom:0}
+ol.timeline li::before{content:""; position:absolute; left:-27px; top:.62em;
+  width:9px; height:9px; border-radius:50%; border:1px solid var(--accent)}
+ol.timeline .when{display:block; font-size:12px; color:var(--muted);
+  letter-spacing:.08em; margin-bottom:2px}
+footer{padding-top:40px; border-top:1px solid var(--line); margin-top:40px}
+footer .mission{margin:0 0 10px; font-size:1.05em}
+footer .note{margin:0; color:var(--muted); font-size:14px}
+.hero h1{background:linear-gradient(90deg,#7a8b99,#a08b7a);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{color:#8e8e88;text-transform:uppercase;letter-spacing:.16em;font-size:12px}
+.card{background:transparent;border:0;border-top:1px solid #f0f0ec;border-radius:0;padding:16px 0 0}
+
+
+</style>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <p class="eyebrow">标注一致性的分歧定位</p>
+  <h1>jacob-ter</h1>
+  <p class="tagline">一致率低的时候，得知道分歧在哪。</p>
+  <p class="links"><a href="https://github.com/jacob-ter" rel="noopener">GitHub 主页</a></p>
+</header>
+
+<section class="about" id="about">
+  <h2>关于</h2>
+  <p>我是 jacob-ter。两个标注员的一致率只有 0.7，这数字说明有问题，但它不告诉你是哪一类条目让人分歧的。
+
+annotdiff 按样本比对两批标注，列出具体分歧点、整体一致率，以及分歧最集中的类别——那通常意味着某条标注规则还写得不够清楚。它的输出是给人去改规则的，不是给人背锅的。</p>
+  <ul class="traits">
+    <li>只做标注一致性的分歧定位，不做看起来更通用的事。</li>
+    <li>结论要能追到具体的证据，不接受「一般来说」。</li>
+    <li>拿不准的地方直接说不确定，不硬凑一个结论。</li>
+  </ul>
+</section>
+
+<section id="research">
+  <h2>研究方向</h2>
+  <div class="grid two">
+    <article class="card">
+      <h3>一致率的算法</h3>
+      <p>不同一致率算法，结论会差多少？</p>
+      <span class="status">在研究</span>
+    </article>
+    <article class="card">
+      <h3>分歧的归因</h3>
+      <p>分歧是规则不清，还是标准本就多解？</p>
+      <span class="status">持续沉淀</span>
+    </article>
+    <article class="card">
+      <h3>校准的成本</h3>
+      <p>多久校准一次才够？</p>
+      <span class="status">在做工具</span>
+    </article>
+  </div>
+</section>
+
+<section id="work">
+  <h2>开源</h2>
+  <ul class="repos">
+    <li><div class="name"><a href="https://github.com/jacob-ter/annotdiff" rel="noopener">annotdiff</a></div>
+      <div class="desc">按样本比对两批标注，列出分歧点、一致率与分歧最集中的类别。</div>
+    </li>
+  </ul>
+</section>
+
+<section id="hobbies">
+  <h2>业余</h2>
+  <ul class="tags">
+    <li>整理标注规则里最容易被误读的说法</li>
+    <li>研究标注员的校准流程</li>
+  </ul>
+</section>
+
+<section id="timeline">
+  <h2>时间线</h2>
+  <ol class="timeline">
+    <li>
+      <span class="when">2026-10-21</span>
+      注册 GitHub 账号。
+    </li>
+    <li>
+      <span class="when">2026-10-26</span>
+      开源 annotdiff，用于处理标注一致性的分歧定位相关的问题。
+    </li>
+  </ol>
+</section>
+
+<footer>
+  <p class="mission">让每一次标注分歧，都能指向一条需要改写的规则。</p>
+  <p class="note">这个页面在生长。每一次真实的提交都会被记下来。</p>
+</footer>
+
+</main>
+</body>
+</html>
